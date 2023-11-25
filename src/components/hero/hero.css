@@ -1,0 +1,123 @@
+/* ===========================
+ table of contents
+==============================
+1. Left Section
+2. Right Section ==> animation*/
+
+section.hero {
+  margin-top: 3rem;
+}
+
+/* ========================
+    1. Left Section
+=========================== */
+section.hero .parent-avatar.flex {
+  align-items: end;
+  gap: 0.6rem;
+  min-height: 88px;
+}
+
+section.hero .left-section {
+  flex-grow: 1;
+}
+
+section.hero .icon-verified {
+  color: var(--blue);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+section.hero .avatar {
+  width: 95px;
+  border-radius: 10%;
+  border: 1px solid darkorange;
+  padding: 1px;
+  box-shadow: 2px 2px 40px rgba(203, 200, 200, 0.586) inset;
+}
+
+section.hero h1.title {
+  font-size: 2.85rem;
+  line-height: 3.3rem;
+  margin: 24px 0;
+  color: var(--title);
+}
+
+section.hero p.sub-title {
+  color: var(--subtitle);
+  font-size: 0.9rem;
+  line-height: 1.65rem;
+  margin-bottom: 32px;
+  margin-top: 20px;
+}
+
+section.hero .all-icons {
+  font-size: 1.3rem;
+  gap: 1.5rem;
+  color: var(--subtitle);
+}
+
+section.hero .all-icons .icon:hover {
+  font-size: 1.4rem;
+  transition: 0.3s;
+  cursor: pointer;
+  color: var(--icon-hover);
+}
+
+.type-animation {
+  background: -webkit-linear-gradient(rgb(188, 12, 241), rgb(212, 4, 4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.resumeBtn {
+  text-decoration: none;
+  width: 80%;
+  max-width: 180px;
+  text-align: center;
+  padding: 14px 0;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out !important;
+  background: hsla(271, 100%, 50%, 1);
+  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+  background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+  background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+  box-shadow: 20px 20px 60px #1F2634,
+    -20px -20px 60px #1F2634;
+  margin-top: 30px;
+}
+
+.resumeBtn:hover {
+    transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+    box-shadow: 20px 20px 60px #1F2634,
+}
+
+
+
+@media (max-width: 640px) {
+  section.type-animation {
+    font-size: 22px;
+    /* line-height: 48px; */
+    width: 100%;
+  }
+}
+
+/* ===================================
+    2. Right Section ==> animation
+====================================== */
+section.hero .animation {
+  width: 100%;
+  translate: 100px 55px;
+}
+
+@media (max-width: 1250px) {
+  section.hero .animation {
+    display: none;
+  }
+}
