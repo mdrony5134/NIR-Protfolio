@@ -8,7 +8,7 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("mrgwwepz");
 
   return (
-    <section className="contact-us">
+    <section className="contact-us" id="contact">
       <h1 className="title">
         <span className="icon-envelope-o"> </span>
         Contact us
@@ -51,7 +51,7 @@ const Contact = () => {
 
           {state.succeeded && (
             <p
-              className="flex"
+              className="flex s-message"
               style={{ fontSize: "18px", marginTop: "1.7rem" }}
             >
               <Lottie

@@ -79,6 +79,9 @@ section.contact-us .icon-envelope {
   section.contact-us .submit:hover {
     scale: 0.97;
   }
+  .s-message{
+    color: var(--title);
+  }
   
   /* =====================================
     3- Responsive Design (media query)
@@ -119,4 +122,4 @@ section.contact-us .icon-envelope {
       width: 30%;
       align-self: center;
     }
-  }
+  } 

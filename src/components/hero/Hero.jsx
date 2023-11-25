@@ -8,7 +8,7 @@ const Hero = () => {
   const lottieRef = useRef();
 
   return (
-    <section className="hero flex">
+    <section className="hero flex" id="about">
       <div className="left-section  ">
         <div className="parent-avatar flex">
           <motion.img
