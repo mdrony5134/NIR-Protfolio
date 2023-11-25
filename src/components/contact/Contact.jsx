@@ -10,11 +10,11 @@ const Contact = () => {
   return (
     <section className="contact-us">
       <h1 className="title">
-        <span className="icon-envelope"> </span>
+        <span className="icon-envelope-o"> </span>
         Contact us
       </h1>
       <p className="sub-title">
-         Feel free to reach out to me fon any question or opportunities!
+         Feel free to reach out to me fon any question or opportunities!s
       </p>
 
       <div style={{ justifyContent: "space-between" }} className="flex">
