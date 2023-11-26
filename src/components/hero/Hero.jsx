@@ -52,10 +52,10 @@ const Hero = () => {
         </p>
 
         <div className="all-icons flex">
-          <div className="icon icon-facebook-f"></div>
-          <div className="icon icon-instagram"></div>
-          <div className="icon icon-github"></div>
-          <div className="icon icon-linkedin"></div>
+          <a href="https://www.facebook.com/profile.php?id=100015779117184" target="blank" className="icon icon-facebook-f"></a>
+          <a href="https://www.instagram.com/md_ni_rony/" target="blank" className="icon icon-instagram"></a>
+          <a href="https://github.com/mdrony5134" target="blank" className="icon icon-github"></a>
+          <a href="https://www.linkedin.com/in/nirony51" target="blank" className="icon icon-linkedin"></a>
         </div>
 
       <button className="resumeBtn">Check Resume</button>
