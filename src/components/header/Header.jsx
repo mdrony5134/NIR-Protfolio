@@ -79,16 +79,16 @@ const Header = () => {
               />
             </li>
             <li>
-              <a href="">About</a>
+              <a href="#about">About</a>
             </li>
             <li>
-              <a href="">Skill</a>
+              <a href="#skill">Skill</a>
             </li>
             <li>
-              <a href="">Projects</a>
+              <a href="#projects">Projects</a>
             </li>
             <li>
-              <a href="">Contacts</a>
+              <a href="#contact">Contacts</a>
             </li>
           </ul>
         </div>

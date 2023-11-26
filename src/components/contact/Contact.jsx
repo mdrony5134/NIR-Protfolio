@@ -14,7 +14,7 @@ const Contact = () => {
         Contact us
       </h1>
       <p className="sub-title">
-         Feel free to reach out to me fon any question or opportunities!s
+         Feel free to reach out to me fon any question or opportunities!
       </p>
 
       <div style={{ justifyContent: "space-between" }} className="flex">
