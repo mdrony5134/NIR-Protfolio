@@ -3,7 +3,7 @@ export const myProjects = [
   {
     projectTitle: "Coin Crafter",
     category: ["react"],
-    tags: ["React", "Material-ui", "Firebase"],
+    tags: ["<React/>  ", "<Material-ui/>  ", "<ChartJs/>  ", "<Firebase/>"],
     details: "Users explore cryptocurrencies, accessing detailed info and price charts via Chart.js on selecting a coin. They view 24-hour to 1-year price charts with button clicks. Firebase authentication facilitates sign-ups, enabling watchlist creation for adding/removing coins, simplifying tracking.",
     imgPath: "./images/p-coin.png",
     link:"https://coin-crafter.netlify.app/",
@@ -12,7 +12,7 @@ export const myProjects = [
   {
     projectTitle: "Redstore-Ecommerce",
     category: ["css"],
-    tags: ["Html", "css"],
+    tags: ["<Html/>  ", "<css/>"],
     details: " I built a responsive RedStore e-commerce landing page with HTML/CSS. It highlights featured and latest products, includes an add banner section, footer and a fully responsive. The design ensures adaptability across devices, prioritizing a seamless and user-friendly experience.",
     imgPath: "./images/p2.png",
     link:"https://mdrony5134.github.io/RedStore-Ecommerce-Website/",
@@ -21,7 +21,7 @@ export const myProjects = [
   {
     projectTitle: "Responsive Startup Website",
     category: ["css"],
-    tags: ["Html", "css", "javascript"],
+    tags: ["<Html/>  ", "<css/>  ", "<javascript/>"],
     details: "I made a small startup website with home, portfolio, service, and contact pages. It works well on all devices using HTML, CSS, and JavaScript. Every page adjusts smoothly for easy use, making sure it works and looks good everywhere.",
     imgPath: "./images/p-startup.png",
     link:" https://mdrony5134.github.io/Responsive-Startup-Website/",
@@ -30,7 +30,7 @@ export const myProjects = [
   {
     projectTitle: "Appwrite Blog",
     category: ["react"],
-    tags: ["React ", "Redux-Toolkit", "Tailwind ", "Appwrite "],
+    tags: ["<React/>  ", "<Redux-Toolkit/>  ", "<Tailwind/>  ", "<Appwrite/>  "],
     details: "I'm creating a blog website with user authentication where users can write, update, delete their blog posts. Using React, Redux Toolkit, and Appwrite, users will have full control to manage their posts easily within the platform.",
     imgPath: "./images/p6-r.png",
     link: "https://appwrite-blog-site.vercel.app/",
@@ -39,7 +39,7 @@ export const myProjects = [
   {
     projectTitle: "Tic-Tac-To Game",
     category: ["js"],
-    tags: ["Html", "css", "JavaScript"],
+    tags: ["<Html/>  ", "<css/>  ", "<JavaScript/>"],
     imgPath: "./images/tic-tac-to-1.png",
     details: "I'm building a Tic Tac Toe game in JavaScript. When a user wins, a celebratory GIF will play. Clicking the reset button will clear the board, resetting the game for a fresh start.",
     link:"https://mdrony5134.github.io/tic-tac-toe/",
@@ -58,7 +58,7 @@ export const myProjects = [
   {
     projectTitle: "Image Search Site",
     category: ["js"],
-    tags: ["Html", "css", "JavaScript"],
+    tags: ["<Html/>  ", "  <css/>  ", "  <JavaScript/>"],
     details: "Creating an image search app using the Unsplash API. Users input any image name, click search, and view related images with details. A load-more button allows displaying additional images upon clicking, offering extended search results and information.",
     imgPath: "./images/p3-j.png",
     link:" https://mdrony5134.github.io/image-search-app/",

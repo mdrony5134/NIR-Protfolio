@@ -128,12 +128,13 @@ main.flex {
   margin: 8px 0px;
 }
 .tags span{
-  font-size: 14px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--title);
     margin: 4px;
     padding: 4px 8px;
     border-radius: 8px;
+    text-transform: capitalize;
 }
   
   .card .box .icons {
@@ -145,13 +146,13 @@ main.flex {
   }
   
   .card .icon-github,
-  .card .icon-link {
+  .card .icon-external-link {
     font-size: 1.2rem;
     color: var(--subtitle);
   }
   
   .card .icon-github:hover,
-  .card .icon-link:hover {
+  .card .icon-external-link:hover {
     font-size: 1.25rem;
     color: var(--icon-hover);
     cursor: pointer;
