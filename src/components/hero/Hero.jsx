@@ -58,7 +58,9 @@ const Hero = () => {
           <a href="https://www.linkedin.com/in/nirony51" target="blank" className="icon icon-linkedin"></a>
         </div>
 
-      <button className="resumeBtn">Check Resume</button>
+        <div className="resumeBtn">
+        <a href="https://drive.google.com/file/d/18CigwM52Zrbh8JU4EAHe5zdJbhhTNNPW/view?usp=sharing" target="display">Check Resume</a>
+        </div>
 
       </div>
 
