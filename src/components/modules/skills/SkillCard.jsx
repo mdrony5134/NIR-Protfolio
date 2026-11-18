@@ -1,23 +1,34 @@
+"use client";
+
+import { motion } from "framer-motion";
+import DynamicIcon from "@/components/ui/DynamicIcon";
 import styles from "./skill.module.css";
 
-export default function SkillCard({ title, skillItems }) {
+export default function SkillCard({ category, index }) {
+  const { title, description, skills } = category;
+
   return (
-    <div className={styles.skillCard}>
-      <h3 className={styles.skillTitle}>{title}</h3>
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, delay: index * 0.1 }}
+      className={styles.card}
+    >
+      <div className={styles.cardHeader}>
+        <h3 className={styles.categoryTitle}>{title}</h3>
+        <p className={styles.categoryDesc}>{description}</p>
+      </div>
+
       <div className={styles.skillList}>
-        {skillItems.map((item, index) => (
-          <div className={styles.skillItem} key={item.name || index}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className={styles.skillImg}
-              src={item.image}
-              alt={item.name}
-              loading="lazy"
-            />
-            <span>{item.name}</span>
+        {skills.map((skill, idx) => (
+          <div key={idx} className={styles.skillPill} title={`${skill.name} (${skill.level})`}>
+            <DynamicIcon name={skill.icon} className={styles.skillIcon} />
+            <span>{skill.name}</span>
+            <span className={styles.skillLevel}>{skill.level}</span>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

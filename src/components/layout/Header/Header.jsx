@@ -3,48 +3,46 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { personalInfo } from "@/data/personalInfo";
+import { FaSun, FaMoon, FaBars, FaTimes, FaDownload, FaChevronRight } from "react-icons/fa";
 import styles from "./header.module.css";
 
-const NAV_ITEMS = [
+const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Skill", href: "/skills" },
+  { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/projects" },
+  { label: "Skills", href: "/skills" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
-  const [showModal, setShowModal] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("currentMode") || "dark";
+    const savedTheme = localStorage.getItem("nirTheme") || "dark";
     setTheme(savedTheme);
     if (savedTheme === "light") {
-      document.body.classList.remove("dark");
       document.body.classList.add("light");
     } else {
       document.body.classList.remove("light");
-      document.body.classList.add("dark");
     }
   }, []);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
-    localStorage.setItem("currentMode", nextTheme);
-
+    localStorage.setItem("nirTheme", nextTheme);
     if (nextTheme === "light") {
-      document.body.classList.remove("dark");
       document.body.classList.add("light");
     } else {
       document.body.classList.remove("light");
-      document.body.classList.add("dark");
     }
   };
 
-  const isActive = (href) => {
+  const isLinkActive = (href) => {
     if (href === "/") {
       return pathname === "/";
     }
@@ -52,74 +50,131 @@ export default function Header() {
   };
 
   return (
-    <header className={styles.header}>
-      <button
-        onClick={() => setShowModal(true)}
-        className={`${styles.menuBtn} icon-menu`}
-        aria-label="Open navigation menu"
-      />
+    <header className={styles.headerContainer}>
+      <nav className={styles.navbar}>
+        {/* Brand */}
+        <Link href="/" className={styles.brand}>
+          <div className={styles.brandLogo}>NIR</div>
+          <div className={styles.brandInfo}>
+            <span className={styles.brandName}>Nazrul Islam Rony</span>
+            <span className={styles.brandRole}>
+              <span className={styles.roleDot} />
+              Software Engineer @ Easy Fashion
+            </span>
+          </div>
+        </Link>
 
-      <div />
-
-      <nav className={styles.nav}>
-        <ul className={styles.navList}>
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`${styles.navLink} ${
-                  isActive(item.href) ? styles.activeLink : ""
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
+        {/* Desktop Nav Links */}
+        <div className={styles.navMenu}>
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`${styles.navLink} ${
+                isLinkActive(link.href) ? styles.activeLink : ""
+              }`}
+            >
+              {link.label}
+            </Link>
           ))}
-        </ul>
+        </div>
+
+        {/* Actions */}
+        <div className={styles.navActions}>
+          <button
+            onClick={toggleTheme}
+            className={styles.themeBtn}
+            aria-label="Toggle Theme Mode"
+            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {theme === "dark" ? <FaSun /> : <FaMoon />}
+          </button>
+
+          <a
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.resumeBtn}
+          >
+            <FaDownload />
+            <span>Resume</span>
+          </a>
+
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className={styles.menuToggle}
+            aria-label="Open Mobile Menu"
+          >
+            <FaBars />
+          </button>
+        </div>
       </nav>
 
-      <button
-        onClick={toggleTheme}
-        className={styles.modeBtn}
-        aria-label="Toggle theme mode"
-      >
-        {theme === "dark" ? (
-          <span className="icon-moon-o" />
-        ) : (
-          <span className={`icon-sun ${styles.sunIcon}`} />
-        )}
-      </button>
-
-      {showModal && (
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
         <div
-          className={styles.modalBackdrop}
-          onClick={() => setShowModal(false)}
+          className={styles.mobileDrawer}
+          onClick={() => setMobileMenuOpen(false)}
         >
-          <ul
-            className={styles.modalContent}
+          <div
+            className={styles.drawerContent}
             onClick={(e) => e.stopPropagation()}
           >
-            <li>
-              <button
-                className={`icon-close ${styles.closeBtn}`}
-                onClick={() => setShowModal(false)}
-                aria-label="Close navigation menu"
-              />
-            </li>
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setShowModal(false)}
-                  className={`${styles.modalLink} ${
-                    isActive(item.href) ? styles.activeLink : ""
-                  }`}
+            <div>
+              <div className={styles.drawerHeader}>
+                <div className={styles.brand}>
+                  <div className={styles.brandLogo}>NIR</div>
+                  <div className={styles.brandInfo}>
+                    <span className={styles.brandName}>Nazrul Islam Rony</span>
+                    <span className={styles.brandRole}>
+                      <span className={styles.roleDot} />
+                      Software Engineer
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={styles.themeBtn}
+                  aria-label="Close Menu"
                 >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <FaTimes />
+                </button>
+              </div>
+
+              <div className={styles.drawerLinks}>
+                {NAV_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`${styles.drawerLink} ${
+                      isLinkActive(link.href) ? styles.drawerActiveLink : ""
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <FaChevronRight size={12} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.drawerFooter}>
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.resumeBtn}
+                style={{ width: "100%", justifyContent: "center", padding: "0.8rem" }}
+              >
+                <FaDownload />
+                <span>View Full Resume</span>
+              </a>
+              <p style={{ fontSize: "0.8rem", textAlign: "center", color: "var(--text-muted)" }}>
+                © {new Date().getFullYear()} Md Nazrul Islam Rony
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </header>

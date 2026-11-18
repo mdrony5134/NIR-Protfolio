@@ -1,116 +1,170 @@
 "use client";
 
-import { useRef } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { personalInfo } from "@/data/personalInfo";
 import LottieAnimation from "@/components/ui/LottieAnimation";
 import devAnimation from "@/animation/dev.json";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaFacebookF,
+  FaInstagram,
+  FaCheck,
+  FaArrowRight,
+  FaEnvelope,
+  FaDownload,
+} from "react-icons/fa";
 import styles from "./hero.module.css";
 
 export default function Hero() {
-  const lottieRef = useRef(null);
-
   return (
-    <section className={styles.hero} id="about">
+    <section className={styles.hero} id="hero">
       <div className={styles.leftSection}>
-        <div className={styles.parentAvatar}>
-          <motion.img
-            initial={{ scale: 0 }}
-            animate={{ scale: 1.1 }}
-            transition={{ damping: 6, type: "spring", stiffness: 100 }}
-            src="/rony-pro.jpg"
-            className={styles.avatar}
-            alt="Nazrul Islam Rony"
-          />
-          <div className={`${styles.iconVerified} icon-verified`} />
+        {/* Status Pill Badge */}
+        <div className={styles.statusWrapper}>
+          <div className="badge-status">
+            <span className="pulse-dot" />
+            <span>Currently Software Engineer @ Easy Fashion Ltd</span>
+          </div>
         </div>
 
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className={styles.title}
-        >
-          Hi, I&apos;m Nazrul Islam Rony
-        </motion.h1>
+        {/* Avatar & Intro */}
+        <div className={styles.avatarRow}>
+          <div className={styles.avatarContainer}>
+            <motion.img
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              src={personalInfo.avatar}
+              alt={personalInfo.avatarAlt}
+              className={styles.avatar}
+            />
+            <div className={styles.verifiedBadge} title="Verified Software Engineer">
+              <FaCheck />
+            </div>
+          </div>
+          <div>
+            <div className={styles.greetingTag}>Hello, I am</div>
+            <div className={styles.greetingCompany}>
+              Full-Stack & Frontend Software Engineer
+            </div>
+          </div>
+        </div>
 
-        <div>
+        {/* Heading */}
+        <h1 className={styles.title}>
+          I&apos;m <span className="gradient-text">{personalInfo.name}</span>
+        </h1>
+
+        {/* Typing Animation */}
+        <div className={styles.typingWrapper}>
           <TypeAnimation
-            className={styles.typeAnimation}
+            className={styles.typeText}
             sequence={[
-              "I am Web Designer",
-              1000,
-              "I am ReactJs Developer",
-              1000,
-              "I am Web Developer",
-              1000,
+              "Software Engineer @ Easy Fashion Ltd",
+              1500,
+              "Next.js & React Specialist",
+              1500,
+              "Full-Stack Web Developer",
+              1500,
+              "TypeScript & Tailwind Architect",
+              1500,
+              "Production VPS & Cloud Deployer",
+              1500,
             ]}
             speed={50}
             repeat={Infinity}
           />
         </div>
 
+        {/* Bio */}
         <p className={styles.subTitle}>
-          I am a beginner front-end developer and I am skilled in HTML, CSS and
-          JavaScript web development, as well as the React framework. I am
-          looking to gain valuable experience in an IT environment and expand my
-          competence. I am ready for challenges and eager to learn and acquire
-          new skills.
+          As a Frontend-Focused Full Stack Developer and current Software Engineer at Easy Fashion Ltd.,
+          I specialize in architecting scalable, high-performance web applications, complex payment flows,
+          and production-grade user experiences across all devices.
         </p>
 
-        <div className={styles.allIcons}>
-          <a
-            href="https://www.facebook.com/profile.php?id=100015779117184"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.icon} icon-facebook-f`}
-            aria-label="Facebook Profile"
-          />
-          <a
-            href="https://www.instagram.com/md_ni_rony/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.icon} icon-instagram`}
-            aria-label="Instagram Profile"
-          />
-          <a
-            href="https://github.com/mdrony5134"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.icon} icon-github`}
-            aria-label="GitHub Profile"
-          />
-          <a
-            href="https://www.linkedin.com/in/nirony51"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.icon} icon-linkedin`}
-            aria-label="LinkedIn Profile"
-          />
+        {/* Stats Grid */}
+        <div className={styles.statsGrid}>
+          {personalInfo.stats.map((stat, idx) => (
+            <div key={idx} className={styles.statItem}>
+              <span className={styles.statValue}>{stat.value}</span>
+              <span className={styles.statLabel}>{stat.label}</span>
+            </div>
+          ))}
         </div>
 
-        <div>
+        {/* Action CTAs */}
+        <div className={styles.ctaGroup}>
+          <Link href="/projects" className={styles.btnPrimary}>
+            <span>View Production Projects</span>
+            <FaArrowRight size={13} />
+          </Link>
+          <Link href="/contact" className={styles.btnSecondary}>
+            <FaEnvelope size={14} />
+            <span>Contact & Hire Me</span>
+          </Link>
           <a
-            href="https://drive.google.com/file/d/18CigwM52Zrbh8JU4EAHe5zdJbhhTNNPW/view?usp=sharing"
+            href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.resumeBtn}
+            className={styles.btnSecondary}
+            title="Download PDF Resume"
           >
-            Check Resume
+            <FaDownload size={13} />
+            <span>Resume</span>
+          </a>
+        </div>
+
+        {/* Social Row */}
+        <div className={styles.socialRow}>
+          <span className={styles.socialLabel}>Connect:</span>
+          <a
+            href={personalInfo.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIconBtn}
+            aria-label="LinkedIn Profile"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href={personalInfo.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIconBtn}
+            aria-label="GitHub Profile"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href={personalInfo.socials.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIconBtn}
+            aria-label="Facebook Profile"
+          >
+            <FaFacebookF />
+          </a>
+          <a
+            href={personalInfo.socials.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIconBtn}
+            aria-label="Instagram Profile"
+          >
+            <FaInstagram />
           </a>
         </div>
       </div>
 
+      {/* Right Section Animation */}
       <div className={styles.rightSection}>
-        <LottieAnimation
-          lottieRef={lottieRef}
-          onLoadedImages={() => {
-            if (lottieRef.current) {
-              lottieRef.current.setSpeed(0.5);
-            }
-          }}
-          animationData={devAnimation}
-        />
+        <div className={styles.lottieBox}>
+          <LottieAnimation animationData={devAnimation} />
+        </div>
       </div>
     </section>
   );

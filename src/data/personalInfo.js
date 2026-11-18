@@ -1,0 +1,40 @@
+export const personalInfo = {
+  name: "Md Nazrul Islam Rony",
+  shortName: "Nazrul Islam Rony",
+  initials: "NIR",
+  title: "Software Engineer | Full-Stack & Frontend Developer",
+  currentRole: "Software Engineer",
+  currentCompany: "Easy Fashion Ltd.",
+  currentCompanyLocation: "Rampura, Dhaka (On-site)",
+  status: "Currently working at Easy Fashion Ltd.",
+  isAvailableForHire: true,
+  summary:
+    "As a Frontend-Focused Full Stack Developer and current Software Engineer at Easy Fashion Ltd., I specialize in crafting visually appealing, responsive, and user-friendly interfaces that deliver seamless user experiences. I emphasize clean, reusable, and maintainable code while translating designs into high-performance web applications that are accessible, scalable, and consistent across all devices.",
+  email: "nirony.coder@gmail.com",
+  phone: "01783038894",
+  formattedPhone: "+880 1783-038894",
+  whatsappUrl: "https://wa.me/8801783038894",
+  location: "Dhaka, Bangladesh",
+  resumeUrl:
+    "https://drive.google.com/file/d/18CigwM52Zrbh8JU4EAHe5zdJbhhTNNPW/view?usp=sharing",
+  avatar: "/rony-pro.jpg",
+  avatarAlt: "Md Nazrul Islam Rony - Software Engineer",
+  socials: {
+    github: "https://github.com/mdrony5134",
+    linkedin: "https://www.linkedin.com/in/nirony51/",
+    facebook: "https://www.facebook.com/profile.php?id=100015779117184",
+    instagram: "https://www.instagram.com/md_ni_rony/",
+  },
+  stats: [
+    { label: "Years Experience", value: "2+", highlight: "Production" },
+    { label: "Companies", value: "3", highlight: "Tech & Retail" },
+    { label: "Delivered Projects", value: "15+", highlight: "Production & Open Source" },
+    { label: "Client Rating", value: "5.0 ★", highlight: "Top Revenue Generator" },
+  ],
+  rolesTyped: [
+    "Software Engineer @ Easy Fashion Ltd",
+    "Frontend Specialist (Next.js & React)",
+    "Full-Stack Web Developer",
+    "TypeScript & Tailwind Expert",
+  ],
+};

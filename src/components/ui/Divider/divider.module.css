@@ -1,14 +1,23 @@
 .divider {
   border: 0;
-  border-bottom: 1px solid var(--border);
-  margin: 3rem 0;
-  width: calc(100% + var(--container-padding) + var(--container-padding));
-  margin-left: calc(var(--container-padding) * -1);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-medium) 20%,
+    var(--accent-cyan) 50%,
+    var(--border-medium) 80%,
+    transparent 100%
+  );
+  opacity: 0.4;
+  margin: 4.5rem auto;
+  width: 90%;
+  max-width: 1000px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .divider {
-    width: calc(100% + var(--container-padding) + var(--container-padding));
-    margin-left: calc(var(--container-padding) * -1);
+    margin: 3rem auto;
+    width: 95%;
   }
 }

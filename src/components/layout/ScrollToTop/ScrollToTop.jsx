@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 import styles from "./scrollToTop.module.css";
 
 export default function ScrollToTop() {
@@ -32,9 +33,13 @@ export default function ScrollToTop() {
       style={{
         opacity: showScrollBTN ? 1 : 0,
         pointerEvents: showScrollBTN ? "auto" : "none",
+        transform: showScrollBTN ? "translateY(0)" : "translateY(20px)",
       }}
-      className={`${styles.scrollBtn} icon-keyboard_arrow_up`}
+      className={styles.scrollBtn}
       aria-label="Scroll to top"
-    />
+      title="Back to top"
+    >
+      <FaArrowUp />
+    </button>
   );
 }
